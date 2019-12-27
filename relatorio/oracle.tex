@@ -1,0 +1,84 @@
+\section{OracleDB}
+
+\subsection{Criação da base de dados}
+
+\subsubsection{Motivação}
+
+\par A criação da base de dados Oracle pretende responder á necessidade de escalar horizontalmente a nossa base de dados bem com garantir maior flexibilidade e custos reduzidos na manutenção.
+
+\subsubsection{Criação - modificações}
+
+\par A criação destas bases de dados passa por um script muito identico ao do MySQL.\newline
+\par Ao criar esta base de dados os tipos TINYINT e SMALLINT foram convertidos para NUMBER(10), visto que estes tipos não têm representação nos DataTypes Oracle. Para além disso o tipo BOOLEAN foi convertido no tipo NUMBER(1,0) visto que as bases de dados Oracle também não suportam este tipo de dados sugerindo optar por um VARCHAR2(Y,N) ou com foi impementado NUMBER(1,0). O tipo DATETIME do MySQL foi transformado no tipo correspondente na base de dados Oracle DATE e o tipo VARCHAR foi convertido em VARCHAR2. Por fim o tipo DECIMAL(5,2) presente na base de dados foi convertido para FLOAT(2).
+
+\subsection{Criação - Dificuldades na implementação}
+
+\par Ao implementar a mudança da base de dados em python surgiram alguns imprevistos.
+\par Em primeiro lugar a ligação á base de dados foi difícil de conseguir visto que após instalada a base de dados tivemos de proceder á instalação do instant-client, isto suscitou problemas pois este está na versão 19.3.0.0.0 e os turturiais para a instalação deste estão atualizados para a versão 12. Isto levou-nos a procurar soluções em foruns, no git e no StackOverflow até que finalmente as variáveis com o caminho foram criadas e os ficheiros do Instant Client foram colocados na diretoria correta.\newline
+\par Posteriormente surgiram problemas ao correr os scripts para a criação das tabelas pois estes continham pontuação como ';' no fim dos comandos coisa que não pode ser usada nestes scripts no python, removendo os mesmos foi o suficiente para estes começarem a funcionar.\newline
+\par Outro problema que surgiu estava ligado á criação de duas tabelas que continham chaves estrangeiras uma da outra. Por estarmos a executar o script no python como uma das tabelas não tinha sido criada ao declarar uma chave estrangeira de uma tabela que não existe este comando não funcionava. Para resolver este problema, foram criadas primeiro as duas tabelas e a segunda com a chave estrangeira referenciando a primeira, posteriormente foram ambas preenchidas, primeiro a primeira tabela criada e depois a segunda, após serem preenchidas procedeu-se á alteração da primeira tabela criando a restrição de chave estrangeira correspondente.\newline
+\par Por fim surgiu outro problema ao guardar os dados. Na tabela Film os dados referentes a special\_features são devolvidos como tuplos em vez de uma string. Para isso foi necessário executar um ciclo for sobre os dados retirados da tabela MySQL e transformar esse tuplos em strings para poderem ser guardados n nossa base de dados.\newline  
+
+
+\subsection{Preenchimento da Base de Dados}
+
+\par Para preencher a base de dados foram usados os seguintes comandos (para exemplificar vão ser listados os comandos usados na tabela language):\newline
+\begin{itemize}
+\item \textbf{language\_sql = \textit{"SELECT * FROM language"}}
+
+
+\par Este primeiro comando serve para criar a query que servirá para ler a tabela language. \newline
+
+\item \textbf{mycursor.execute(language\_sql)}
+
+
+\par Este comando executa no \textit{MySQL} a leitura da tabela language.\newline
+
+\item \textbf{languageRows = mycursor.fetchall()}
+
+
+\par Este comando vai buscar todos os registos lidos previamente com a query \textit{language\_sql}.\newline
+
+\item \textbf{oracleCursor.bindarraysize = len(languageRows)}
+
+
+\par Este comando serve apenas para que o python saiba quantas vezes terá de executar a query que se segue.\newline
+
+
+
+\item \textbf{oracleCursor.executemany('insert into LANGUAGE(LANGUAGE\_ID, NAME,LAST\_UPDATE) values(:1,:2,:3)', languageRows)}
+
+
+\par Esta query será executada sobre cada linha da talela languageRows.\newline
+
+\item \textbf{con.commit()}
+
+
+\par Este comando permite finalizar os processos realizados adicionando as modificações realizadas por estes permanentemente á nossa base de dados Oracle.
+
+
+\end{itemize}
+
+\textit{Nota: Estes comandos foram usados em cada tabela copiada de MySQL para OracleDB.}
+
+\subsection{Querys a Base de Dados}
+
+Em seguida listam-se algumas das querys feitas á base de dados oracle e as respetivas respostas.
+
+\begin{itemize}
+\item \textbf{res = oracleCursor.execute("SELECT * FROM FILM WHERE FILM\_ID <= 3").fetchall()}
+
+res = [(1, 'ACADEMY DINOSAUR', 'A Epic Drama of a Feminist And a Mad Scientist who must Battle a Teacher in The Canadian Rockies', 2006, 1, None, 6, 0.99, 86, 20.99, 'PG', 'Behind the Scenes Deleted Scenes', datetime.datetime(2006, 2, 15, 5, 3, 42)), (2, 'ACE GOLDFINGER', 'A Astounding Epistle of a Database Administrator And a Explorer who must Find a Car in Ancient China', 2006, 1, None, 3, 4.99, 48, 12.99, 'G', 'Trailers Deleted Scenes', datetime.datetime(2006, 2, 15, 5, 3, 42)), (3, 'ADAPTATION HOLES', 'A Astounding Reflection of a Lumberjack And a Car who must Sink a Lumberjack in A Baloon Factory', 2006, 1, None, 7, 2.99, 50, 18.99, 'NC-17', 'Trailers Deleted Scenes', datetime.datetime(2006, 2, 15, 5, 3, 42))]
+\item
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+

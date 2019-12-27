@@ -2,7 +2,6 @@ from pymongo import MongoClient
 import mysql.connector
 # import neo4j
 import cx_Oracle
-from datetime import datetime
 
 # Criacao da coneccao Oracle
 con = cx_Oracle.connect("hr", "oracle", "127.0.0.1/orcl")
@@ -366,7 +365,7 @@ print("Table PAYMENT done!!\n")
 # ###################### ACTOR ########################### #
 
 oracle_actor_sql = "SELECT * FROM actor"
-oracle_actor = mycursor.execute(oracle_actor_sql)
+mycursor.execute(oracle_actor_sql)
 actorRows = mycursor.fetchall()
 oracleCursor.bindarraysize = len(actorRows)
 oracleCursor.executemany('insert into ACTOR(ACTOR_ID, FIRST_NAME, LAST_NAME,LAST_UPDATE) values(:1,:2,:3,:4)',
@@ -377,7 +376,7 @@ print("Table ACTOR filled!!")
 
 # ###################### COUNTRY ########################### #
 oracle_country_sql = "SELECT * FROM country"
-oracle_country = mycursor.execute(oracle_country_sql)
+mycursor.execute(oracle_country_sql)
 countryRows = mycursor.fetchall()
 oracleCursor.bindarraysize = len(countryRows)
 oracleCursor.executemany('insert into COUNTRY(COUNTRY_ID, COUNTRY, LAST_UPDATE) values ( :1, :2, :3)', countryRows)
@@ -407,7 +406,7 @@ print("Table ADDRESS filled!!")
 
 # ###################### CATEGORY ########################### #
 oracle_category_sql = "SELECT * FROM category"
-oracle_category = mycursor.execute(oracle_category_sql)
+mycursor.execute(oracle_category_sql)
 categoryRows = mycursor.fetchall()
 oracleCursor.bindarraysize = len(categoryRows)
 oracleCursor.executemany('insert into CATEGORY(CATEGORY_ID, NAME,LAST_UPDATE) values(:1,:2,:3)', categoryRows)
@@ -461,7 +460,7 @@ print("Table CUSTOMER filled!!")
 # ###################### LANGUAGE ########################### #
 
 oracle_language_sql = "SELECT * FROM language"
-oracle_language = mycursor.execute(oracle_language_sql)
+mycursor.execute(oracle_language_sql)
 languageRows = mycursor.fetchall()
 oracleCursor.bindarraysize = len(languageRows)
 oracleCursor.executemany('insert into LANGUAGE(LANGUAGE_ID, NAME,LAST_UPDATE) values(:1,:2,:3)', languageRows)
@@ -471,7 +470,7 @@ print("Table LANGUAGE filled!!")
 
 # ###################### FILM ########################### #
 oracle_film_sql = "SELECT * FROM film"
-oracle_film = mycursor.execute(oracle_film_sql)
+mycursor.execute(oracle_film_sql)
 filmRows = mycursor.fetchall()
 oracleCursor.bindarraysize = len(filmRows)
 newfilmRows = []
@@ -485,7 +484,7 @@ print("Table FILM filled!!")
 
 # ###################### FILM_ACTOR ########################### #
 oracle_film_actor_sql = "SELECT * FROM film_actor"
-oracleFilmActor = mycursor.execute(oracle_film_actor_sql)
+mycursor.execute(oracle_film_actor_sql)
 filmActorRows = mycursor.fetchall()
 oracleCursor.bindarraysize = len(filmActorRows)
 oracleCursor.executemany('insert into FILM_ACTOR(ACTOR_ID, FILM_ID,LAST_UPDATE) values(:1,:2,:3)', filmActorRows)
@@ -494,7 +493,7 @@ print("Table FILM_ACTOR filled!!")
 
 # ###################### FILM_CATEGORY ########################### #
 oracle_film_category_sql = "SELECT * FROM film_category"
-oracleFilmCategory = mycursor.execute(oracle_film_category_sql)
+mycursor.execute(oracle_film_category_sql)
 filmCategoryRows = mycursor.fetchall()
 oracleCursor.bindarraysize = len(filmCategoryRows)
 oracleCursor.executemany('insert into FILM_CATEGORY(FILM_ID,CATEGORY_ID,LAST_UPDATE) values(:1,:2,:3)',
@@ -504,7 +503,7 @@ print("Table FILM_CATEGORY filled!!")
 
 # ###################### INVENTORY ########################### #
 oracle_inventory_sql = "SELECT * FROM inventory"
-oracle_inventory = mycursor.execute(oracle_inventory_sql)
+mycursor.execute(oracle_inventory_sql)
 inventoryRows = mycursor.fetchall()
 oracleCursor.bindarraysize = len(inventoryRows)
 oracleCursor.executemany('insert into INVENTORY(INVENTORY_ID, FILM_ID, STORE_ID ,LAST_UPDATE) values(:1,:2,:3,:4)',
@@ -515,7 +514,7 @@ print("Table INVENTORY filled!!")
 
 # ###################### RENTAL ########################### #
 oracle_rental_sql = "SELECT * FROM rental"
-oracle_rental = mycursor.execute(oracle_rental_sql)
+mycursor.execute(oracle_rental_sql)
 rentalRows = mycursor.fetchall()
 oracleCursor.bindarraysize = len(rentalRows)
 oracleCursor.executemany(
@@ -526,7 +525,7 @@ print("Table RENTAL filled!!")
 
 # ###################### PAYMENT ########################### #
 oracle_payment_sql = "SELECT * FROM payment"
-oracle_payment = mycursor.execute(oracle_payment_sql)
+mycursor.execute(oracle_payment_sql)
 paymentRows = mycursor.fetchall()
 oracleCursor.bindarraysize = len(paymentRows)
 oracleCursor.executemany('insert into PAYMENT(PAYMENT_ID, CUSTOMER_ID, STAFF_ID, RENTAL_ID, AMOUNT,PAYMENT_DATE,LAST_UPDATE) values(:1,:2,:3,:4,:5,:6,:7)',
@@ -534,10 +533,9 @@ oracleCursor.executemany('insert into PAYMENT(PAYMENT_ID, CUSTOMER_ID, STAFF_ID,
 con.commit()
 print("Table PAYMENT filled!!")
 
-#   QUERYS   #
-oracleCursor.execute("SELECT * FROM FILM WHERE FILM_ID <= 3")
-con.commit()
-res = oracleCursor.fetchall()
+# ###################### QUERYS ########################### #
+
+res = oracleCursor.execute("SELECT * FROM FILM WHERE FILM_ID <= 3").fetchall()
 print("res =",res)
 
 # leitura DB
