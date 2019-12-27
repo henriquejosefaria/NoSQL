@@ -591,5 +591,9 @@ while (True):
     paymentList.insert_one(storeinfo)
 while (True):
     query1Mongo = filmsList.find({}, {"title": 1, "original_language": 1, "foreign_language": 1, "_id": 0})
-    [print(queryMongo) for queryMongo in query1Mongo]
+    #[print(queryMongo) for queryMongo in query1Mongo]
+    query2Mongo = filmsList.find({"title": 'ACADEMY DINOSAUR'}, {"title": 1, "actors": 1, "_id": 0})
+    [print(queryMongo) for queryMongo in query2Mongo]
+    query3Mongo = paymentList.find({'customer': 'AUSTIN CINTRON'}, { "_id": 0})
+    [print(queryMongo) for queryMongo in query3Mongo]
     break

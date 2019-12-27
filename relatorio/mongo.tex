@@ -58,28 +58,49 @@ Cada objeto iterado neste ciclo while corresponde a um film, podendo haver filme
 Em seguida listam-se algumas das querys feitas á base de dados Mongo e as respetivas respostas.
 
 \begin{itemize}
-\item \begin{figure}[H]
+\item \textbf{filmsList.find({}, {"title": 1, "original\_language": 1, "foreign\_language": 1, "\_id": 0})}
 
-  \centering
-
-  \includegraphics[scale = 0.40]{ciclo.png}
-
-  \caption {Ciclo que gera cada documento Film guardado na base de dados MongoDB}
-
-  \label {fig1}
-
-\end{figure}filmsList.find({}, {"title": 1, "original\_language": 1, "foreign\_language": 1, "\_id": 0})
-
+\item 
 \begin{figure}[H]
 
   \centering
 
   \hbox{\hspace{-11.5em} \includegraphics[scale = 0.45]{mongoQuery1.png}}
 
-  \caption {Excerto do resultado da primeira query MongoDB}
+  \caption {Excerto do resultado da primeira query feita á base de dados MongoDB}
 
   \label {fig2}
 
 \end{figure}
 
+\item \textbf{query2Mongo = filmsList.find({"title": 'ACADEMY DINOSAUR'}, {"title": 1, "actors": 1, "\_id": 0})}
+
+\begin{figure}[H]
+
+  \centering
+
+  \hbox{\hspace{-11.5em} \includegraphics[scale = 0.40]{mongoQuery2.png}}
+
+  \caption {Resultado da segunda query feita á base de dados MongoDB}
+
+  \label {fig3}
+
+\end{figure}
+
+\item \textbf{query3Mongo = paymentList.find({'customer': 'AUSTIN CINTRON'}, { "\_id": 0})}
+
+\begin{figure}[H]
+
+  \centering
+
+  \hbox{\hspace{-11.5em} \includegraphics[scale = 0.40]{mongoQuery3.png}}
+
+  \caption {Resultado da terceira query feita á base de dados MongoDB}
+
+  \label {fig4}
+
+\end{figure}
 \end{itemize}
+
+
+
