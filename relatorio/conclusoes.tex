@@ -1,0 +1,15 @@
+\section{Conclusões}
+
+As três base de dados tem perspetivas diferentes de como fazer a persistência dos dados. 
+
+A primeira , em relação a original, não existe muita diferença em termos de desempenho ou queries possíveis visto que os dois modelos são relacionais e representam , basicamente, o mesmo.
+
+A base de dados documental ao englobar os filmes e os pagamentos cada uma na sua coleção realizar queries eficientes sobre os elementos de topo.No caso da primeira coleção procurar por filmes, o ano da estreia do filme, procurar todos os filmes de um determindado género. No entanto, tudo o que se centre nas categorias e atores tornar-se-á mais lento visto que inverter-se-ia a base de dados por completo. Por exemplo, saber quais os filmes em que certo ator atuou, muito útil para um sistema de pesquisa de filmes.E, também, organizar todos os filmes por categoria, isto é, todos os filmes que pertencem a categoria Action, todos os filmes que pertencem a categoria Games , etc.
+
+Por outro lado, poderia-se ter feito uso da funcionalidade do Mongo parecida as chaves primárias/estrangeira para relacionar as duas coleções, porém, apesar de possível, não seria uma solução muito eficiente comparado estar a informação toda num só documento.
+
+A base de dados gráfica especializa-se nas conexões entre os nodos definidos para mesma, portanto qualquer query que tente relacionar vários nodos será mais eficiente aqui do que na versão documental ou relacional.Por exemplo, ao contrário do que na base de dados de Mongo, "descobrir" todos os filmes em que dado ator participou é bastante eficiente.No entanto, em principio, seria menos eficiente do que a base dados documental em query sobre um só tipo de nodo, isto é, queries que nao relacionem alguns nodos.
+
+Devido a própria natureza do Neo4j é fácil conetar os dois subgrafos que, são equivalente as duas coleções do Mongo.E,assim, fazer queries mais "interessantes" em que se relacionem os filmes e os pagamentos, como foi exemplificado numa das queries apresentadas no relatório mais acima.
+
+A base de dados relacional continua a ser a mais indicada para fazer transações e as não relacionais para suporte de algumas funcionalidades de um determindado serviço.

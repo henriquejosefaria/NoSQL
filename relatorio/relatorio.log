@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.10.7)  27 DEC 2019 18:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.10.7)  1 JAN 2020 22:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -128,13 +128,38 @@ LaTeX Font Info:    Redeclaring math symbol \Omega on input line 372.
 \c@remark=\count116
 \headlineindent=\dimen124
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
-
+(/usr/local/texlive/2019/texmf-dist/tex/latex/listings/listings.sty
 (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks18
 )
+\lst@mode=\count117
+\lst@gtempboxa=\box55
+\lst@token=\toks19
+\lst@length=\count118
+\lst@currlwidth=\dimen125
+\lst@column=\count119
+\lst@pos=\count120
+\lst@lostspace=\dimen126
+\lst@width=\dimen127
+\lst@newlines=\count121
+\lst@lineno=\count122
+\lst@maxwidth=\dimen128
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2019/02/27 1.8b (Carsten Heinz)
+\c@lstnumber=\count123
+\lst@skipnumbers=\count124
+\lst@framebox=\box56
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2019/02/27 1.8b listings configuration
+))
+Package: listings 2019/02/27 1.8b (Carsten Heinz)
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
 (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
 
@@ -149,8 +174,8 @@ Package graphics Info: Driver file: pdftex.def on input line 99.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen125
-\Gin@req@width=\dimen126
+\Gin@req@height=\dimen129
+\Gin@req@width=\dimen130
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
@@ -167,11 +192,11 @@ Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
 
 (/usr/local/texlive/2019/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2019/05/04 3.31 Babel common definitions
-\babel@savecnt=\count117
-\U@D=\dimen127
+\babel@savecnt=\count125
+\U@D=\dimen131
 
 (/usr/local/texlive/2019/texmf-dist/tex/generic/babel/txtbabel.def)
-\bbl@dirlevel=\count118
+\bbl@dirlevel=\count126
 )
 Package babel Info: Making " an active character on input line 145.
 ))
@@ -184,52 +209,53 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
 (/usr/local/texlive/2019/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks19
-\verbatim@line=\toks20
+\every@verbatim=\toks20
+\verbatim@line=\toks21
 \verbatim@in@stream=\read1
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count119
-\float@exts=\toks21
-\float@box=\box55
-\@float@everytoks=\toks22
-\@floatcapt=\box56
+\c@float@type=\count127
+\float@exts=\toks22
+\float@box=\box57
+\@float@everytoks=\toks23
+\@floatcapt=\box58
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2018/08/11 v1.3c Input encoding file
-\inpenc@prehook=\toks23
-\inpenc@posthook=\toks24
+\inpenc@prehook=\toks24
+\inpenc@posthook=\toks25
 )
 (./relatorio.aux)
 \openout1 = `relatorio.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+\c@lstlisting=\count128
 
 (/usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count120
-\scratchdimen=\dimen128
-\scratchbox=\box57
-\nofMPsegments=\count121
-\nofMParguments=\count122
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count123
-\MPscratchDim=\dimen129
-\MPnumerator=\count124
-\makeMPintoPDFobject=\count125
-\everyMPtoPDFconversion=\toks26
+\scratchcounter=\count129
+\scratchdimen=\dimen132
+\scratchbox=\box59
+\nofMPsegments=\count130
+\nofMParguments=\count131
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count132
+\MPscratchDim=\dimen133
+\MPnumerator=\count133
+\makeMPintoPDFobject=\count134
+\everyMPtoPDFconversion=\toks27
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -286,43 +312,28 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 12.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 12.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 18.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 19.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 18.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 19.
 
 [1
 
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
 (./oracle.tex
-Underfull \hbox (badness 10000) in paragraph at lines 11--12
+Underfull \hbox (badness 10000) in paragraph at lines 22--23
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--18
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--19
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 19--20
+Underfull \hbox (badness 10000) in paragraph at lines 28--29
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 20--21
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 25--26
+Underfull \hbox (badness 10000) in paragraph at lines 29--30
 
  []
 
@@ -332,48 +343,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--31
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--36
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 40--41
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--46
-
- []
-
-
-Overfull \hbox (27.85432pt too wide) in paragraph at lines 49--50
-[]\T1/cmr/bx/n/10 oracleCursor.executemany('insert into LAN-GUAGE(LANGUAGE_ID,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
-
- []
-
-[3]) (./mongo.tex
-Underfull \hbox (badness 10000) in paragraph at lines 15--16
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 17--18
-
- []
-
-
-Overfull \hbox (115.32349pt too wide) in paragraph at lines 25--26
-\T1/cmr/bx/n/10 AS Ca-te-gory,a.first_name,a.last_name, lan-guage.name AS Fo-re
-ign_language,extra.name
- []
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 34--35
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
 
  []
 
@@ -383,70 +353,282 @@ Underfull \hbox (badness 10000) in paragraph at lines 36--37
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--38
+Underfull \hbox (badness 10000) in paragraph at lines 41--42
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--39
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
 
  []
 
-<ciclo.png, id=25, 835.12pt x 365.365pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--52
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 56--57
+
+ []
+
+
+Overfull \hbox (27.85432pt too wide) in paragraph at lines 60--61
+[]\T1/cmr/bx/n/10 oracleCursor.executemany('insert into LAN-GUAGE(LANGUAGE_ID,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 63--64
+
+ []
+
+
+Overfull \hbox (41.079pt too wide) in paragraph at lines 85--86
+[]\T1/cmr/bx/n/10 res = ora-cle-Cur-sor.execute("SELECT FILM.TITLE, LAN-GUAGE.N
+AME
+ []
+
+
+Overfull \hbox (9.33304pt too wide) in paragraph at lines 87--88
+\T1/cmr/m/n/10 glish'), ('AFRI-CAN EGG', 'En-glish'), ('AGENT TRU-MAN', 'En-gli
+sh'), ('AIR-
+ []
+
+
+Overfull \hbox (3.2373pt too wide) in paragraph at lines 87--88
+\T1/cmr/m/n/10 BAMA DE-VIL', 'En-glish'), ('ALAD-DIN CA-LEN-DAR', 'En-glish'), 
+('ALAMO
+ []
+
+
+Overfull \hbox (9.40247pt too wide) in paragraph at lines 87--88
+\T1/cmr/m/n/10 'En-glish'), ('AL-LEY EVO-LU-TION', 'En-glish'), ('ALONE TRIP', 
+'En-glish'),...] 
+ []
+
+) (./mongo.tex [4]
+Overfull \hbox (14.56592pt too wide) in paragraph at lines 15--16
+\T1/cmr/m/n/10 tence(categorys) e , por úl-timo, uma lista de ato-res que par-t
+i-ci-pa-ram no filme(actors) 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--16
+
+ []
+
+[5] (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2019/02/27 1.8b listings language file
+)
+Overfull \hbox (30.78706pt too wide) in paragraph at lines 66--67
+[][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (72.77713pt too wide) in paragraph at lines 67--68
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (78.77571pt too wide) in paragraph at lines 70--71
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (6.79274pt too wide) in paragraph at lines 71--72
+[][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (30.78706pt too wide) in paragraph at lines 74--75
+[][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (84.77429pt too wide) in paragraph at lines 76--77
+[][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (72.77713pt too wide) in paragraph at lines 77--78
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[6]
+<ciclo.png, id=31, 835.12pt x 365.365pt>
 File: ciclo.png Graphic file (type png)
 <use ciclo.png>
-Package pdftex.def Info: ciclo.png  used on input line 45.
+Package pdftex.def Info: ciclo.png  used on input line 86.
 (pdftex.def)             Requested size: 375.80052pt x 164.41272pt.
 
-Overfull \hbox (28.67699pt too wide) in paragraph at lines 45--46
+Overfull \hbox (28.67699pt too wide) in paragraph at lines 86--87
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--51
+Underfull \hbox (badness 10000) in paragraph at lines 81--92
 
  []
 
-[5 <./ciclo.png>]
-Overfull \hbox (16.13496pt too wide) in paragraph at lines 61--62
-[]\T1/cmr/bx/n/10 filmsList.find(, "ti-tle": 1, "ori-gi-nal_language": 1, "fo-r
-eign_language":
+
+Overfull \hbox (12.79132pt too wide) in paragraph at lines 100--101
+[][][][][][][][][][][][][][][][][][][][] 
  []
 
-<mongoQuery1.png, id=31, 1213.53375pt x 713.66624pt>
-File: mongoQuery1.png Graphic file (type png)
-<use mongoQuery1.png>
-Package pdftex.def Info: mongoQuery1.png  used on input line 68.
-(pdftex.def)             Requested size: 546.08516pt x 321.14684pt.
-<mongoQuery2.png, id=32, 1444.39626pt x 56.21pt>
-File: mongoQuery2.png Graphic file (type png)
-<use mongoQuery2.png>
-Package pdftex.def Info: mongoQuery2.png  used on input line 82.
-(pdftex.def)             Requested size: 577.74828pt x 22.4836pt.
-[6 <./mongoQuery1.png>]
-Overfull \hbox (12.47487pt too wide) in paragraph at lines 90--91
-[]\T1/cmr/bx/n/10 query3Mongo = pay-men-tList.find('customer': 'AUS-TIN CIN-TRO
-N',
+
+Overfull \hbox (6.79274pt too wide) in paragraph at lines 102--103
+[][][][][][][][][][][][][][][][][][] 
  []
 
-<mongoQuery3.png, id=37, 1443.3925pt x 766.865pt>
-File: mongoQuery3.png Graphic file (type png)
-<use mongoQuery3.png>
-Package pdftex.def Info: mongoQuery3.png  used on input line 96.
-(pdftex.def)             Requested size: 577.34679pt x 306.74057pt.
-) (./neo4j.tex) [7 <./mongoQuery2.png> <./mongoQuery3.png>] (./relatorio.aux)
+
+Overfull \hbox (24.78848pt too wide) in paragraph at lines 104--105
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[7 <./ciclo.png>]
+<PovoamentoMongo2.png, id=38, 1054.94125pt x 433.62pt>
+File: PovoamentoMongo2.png Graphic file (type png)
+<use PovoamentoMongo2.png>
+Package pdftex.def Info: PovoamentoMongo2.png  used on input line 116.
+(pdftex.def)             Requested size: 347.12354pt x 142.67819pt.
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2019/02/27 1.8b listings language file
+) [8 <./PovoamentoMongo2.png>]
+Overfull \hbox (4.90161pt too wide) in paragraph at lines 164--165
+\T1/cmr/m/n/10 guida, fil-tra só por aque-les que tem o cus-to-mer_id igual ao 
+de-se-jado. E,concluindo,
+ []
+
+) (./neo4j.tex [9]
+Underfull \hbox (badness 10000) in paragraph at lines 18--20
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--22
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--24
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--34
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--36
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--38
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--47
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--49
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--51
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 59--61
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--63
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 63--65
+
+ []
+
+<Movie.png, id=49, 593.21625pt x 277.035pt>
+File: Movie.png Graphic file (type png)
+<use Movie.png>
+Package pdftex.def Info: Movie.png  used on input line 75.
+(pdftex.def)             Requested size: 347.12354pt x 162.11343pt.
+<Pagamento.png, id=50, 502.87875pt x 193.72375pt>
+File: Pagamento.png Graphic file (type png)
+<use Pagamento.png>
+Package pdftex.def Info: Pagamento.png  used on input line 88.
+(pdftex.def)             Requested size: 347.12354pt x 133.72273pt.
+
+Underfull \vbox (badness 1616) has occurred while \output is active []
+
+ [11 <./Movie.png>]
+<Completo.png, id=55, 490.83376pt x 279.0425pt>
+File: Completo.png Graphic file (type png)
+<use Completo.png>
+Package pdftex.def Info: Completo.png  used on input line 102.
+(pdftex.def)             Requested size: 347.12354pt x 197.34662pt.
+
+Overfull \hbox (5.78918pt too wide) in paragraph at lines 115--116
+\T1/cmr/m/n/10 para mi-grar para Mon-goDB e , tam-bém as mes-mas que-ries ao My
+SQL(adicionando
+ []
+
+[12 <./Pagamento.png> <./Completo.png>]
+Overfull \hbox (42.78423pt too wide) in paragraph at lines 119--120
+[][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (78.77571pt too wide) in paragraph at lines 123--125
+[][][][][][][][][][][][][][] 
+ []
+
+<FilmesStatment.png, id=61, 1272.755pt x 401.5pt>
+File: FilmesStatment.png Graphic file (type png)
+<use FilmesStatment.png>
+Package pdftex.def Info: FilmesStatment.png  used on input line 131.
+(pdftex.def)             Requested size: 347.12354pt x 109.49693pt.
+<PagamentosStatment.png, id=62, 1293.83376pt x 409.53pt>
+File: PagamentosStatment.png Graphic file (type png)
+<use PagamentosStatment.png>
+Package pdftex.def Info: PagamentosStatment.png  used on input line 143.
+(pdftex.def)             Requested size: 347.12354pt x 109.86844pt.
+<ConexaoStatment.png, id=63, 1237.62375pt x 428.60126pt>
+File: ConexaoStatment.png Graphic file (type png)
+<use ConexaoStatment.png>
+Package pdftex.def Info: ConexaoStatment.png  used on input line 155.
+(pdftex.def)             Requested size: 347.12354pt x 120.21027pt.
+[13 <./FilmesStatment.png> <./PagamentosStatment.png>]
+Overfull \hbox (15.76007pt too wide) in paragraph at lines 192--193
+\T1/cmr/m/n/10 tes.Permite sa-ber quais os fil-mes que um Cli-ente re-a-li-zou 
+pa-ga-men-tos por.Permitindo
+ []
+
+[14 <./ConexaoStatment.png>]) (./conclusoes.tex) [15] (./relatorio.aux)
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 2856 strings out of 492616
- 38358 string characters out of 6129481
- 121170 words of memory out of 5000000
- 6723 multiletter control sequences out of 15000+600000
+ 4844 strings out of 492616
+ 64270 string characters out of 6129481
+ 351059 words of memory out of 5000000
+ 8686 multiletter control sequences out of 15000+600000
  11445 words of font info for 25 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,7n,25p,755b,296s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,7n,42p,832b,1895s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
 /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></u
@@ -458,10 +640,10 @@ al/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local
 exlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/tex
 live/2019/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texli
 ve/2019/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on relatorio.pdf (7 pages, 639149 bytes).
+Output written on relatorio.pdf (15 pages, 656429 bytes).
 PDF statistics:
- 78 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
+ 111 PDF objects out of 1000 (max. 8388607)
+ 67 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
