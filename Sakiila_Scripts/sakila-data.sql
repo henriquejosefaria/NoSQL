@@ -1,0 +1,2 @@
+use sakila;
+SELECT s.store_id, c.first_name AS Costumer_first_name, c.last_name AS Costumer_last_name, p.amount, p.payment_date, st.first_name AS Staff_first_name, st.last_name  AS Staff_last_name FROM store AS s LEFT JOIN customer AS c ON s.store_id = s.store_id LEFT JOIN payment AS p ON c.customer_id = p.customer_id LEFT JOIN staff AS st ON p.staff_id = st.staff_id

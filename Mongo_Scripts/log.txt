@@ -1,0 +1,23 @@
+{
+	"store_id" : ,
+	"manager_id" : ,
+	"paymentsByCostumer" : 
+	[
+		{
+			"customer_id" : ,
+			"name" : ,
+			"email" : ,
+			"payments" : 
+			[
+				{
+					"staff_id" : ,
+					"name" : ,
+					"email" : ,
+					"payment_id" : ,
+					"amount" : ,
+					"date" : 
+				}
+			]
+		}
+	]
+}
