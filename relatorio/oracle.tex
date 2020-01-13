@@ -1,34 +1,38 @@
 \section{Introdução}
 
-A migração de base de dados é uma tarefa relativamente típica aquando a realização de base de dados que usem vários tipos de modelos.As diferentes base de dados sejam estas SQL ou NoSQL cada uma delas tem o seu propósito.Normalmente os serviços maiores, tem uma base de dados relacional para "suportar" todo o serviço e outras NoSQL para "suportar" especificas funcionalidades do mesmo.
+A migração entre bases de dados é uma tarefa relativamente típica quando se pretende obter maior eficiência em certas consultas ou melhorar o desempenho de forma geral. As diferentes base de dados sejam estas SQL ou NoSQL têm o seu propósito. Normalmente os serviços maiores, tem uma base de dados relacional para "suportar" todo o serviço e outras NoSQL para "suportar" consultas mais especificas com maior rapidez.
 
-Como objetivo, realizou-se a migração de uma base de dados MySQL para Oracle, uma parte para Mongo para suportar um sistema de procura e também para Neo4j.
+O objetivo do trabalho passou por realizar então uma migração de uma base de dados MySQL para OracleDB, uma parte desta para MongoDB e para Neo4j.
 
-As seções sobre cada base de dados seguem o mesmo modelo, isto é, a motivação, algumas modificações feitas(Oracle - Contém uma seção sobre as ficuldadas com a migração), como foi feita o prenchimento das mesmas e algumas queries que podia ser feitas.
+As seções sobre cada base de dados seguem o mesmo princípio, isto é, a motivação. Note-se que algumas modificações feitas(Oracle - Contém uma seção sobre as ficuldades com a migração).
 
-Primeiramente, discute-se sobre a base de dados relacional , seguindo com a documental e, finalmente, a base de dados gráfica.Acabando o relatório com algumas conclusões sobre as base de dados desenvolvidas.
+Primeiramente, discute-se sobre a base de dados relacional, seguindo com a documental e, finalmente, a base de dados gráfica. 
+
+Por fim terminamos o relatório com algumas conclusões sobre as base de dados desenvolvidas.
 
 
 \section{OracleDB}
 
 \subsection{Criação da base de dados}
 
-\subsubsection{Motivação}
-
+\subsubsection{Motivação}\hfill
+\newline
 \par A criação da base de dados Oracle pretende responder á necessidade de escalar horizontalmente a nossa base de dados bem com garantir maior flexibilidade e custos reduzidos na manutenção.
 
-\subsubsection{Criação - modificações}
+\subsubsection{Criação - modificações}\hfill
+\newline
 
 \par A criação destas bases de dados passa por um script muito identico ao do MySQL.\newline
-\par Ao criar esta base de dados os tipos TINYINT e SMALLINT foram convertidos para NUMBER(10), visto que estes tipos não têm representação nos DataTypes Oracle. Para além disso o tipo BOOLEAN foi convertido no tipo NUMBER(1,0) visto que as bases de dados Oracle também não suportam este tipo de dados sugerindo optar por um VARCHAR2(Y,N) ou com foi impementado NUMBER(1,0). O tipo DATETIME do MySQL foi transformado no tipo correspondente na base de dados Oracle DATE e o tipo VARCHAR foi convertido em VARCHAR2. Por fim o tipo DECIMAL(5,2) presente na base de dados foi convertido para FLOAT(2).
+\par Ao criar esta base de dados os tipos TINYINT e SMALLINT foram convertidos para NUMBER(10) visto que estes tipos não têm representação nos DataTypes Oracle. Para além disso o tipo BOOLEAN foi modificado visto que as bases de dados Oracle também não suportam este tipo de dados sugerindo optar por um VARCHAR2(Y,N) ou, como foi impementado, NUMBER(1,0).
+\par O tipo DATETIME do MySQL foi transformado no tipo correspondente na base de dados Oracle DATE e o tipo VARCHAR foi convertido em VARCHAR2. Por fim o tipo DECIMAL(5,2) presente na base de dados foi convertido para o seu correspondente Oracle FLOAT(2).
 
 \subsection{Criação - Dificuldades na implementação}
 
 \par Ao implementar a mudança da base de dados em python surgiram alguns imprevistos.
-\par Em primeiro lugar a ligação á base de dados foi difícil de conseguir visto que após instalada a base de dados tivemos de proceder á instalação do instant-client, isto suscitou problemas pois este está na versão 19.3.0.0.0 e os turturiais para a instalação deste estão atualizados para a versão 12. Isto levou-nos a procurar soluções em foruns, no git e no StackOverflow até que finalmente as variáveis com o caminho foram criadas e os ficheiros do Instant Client foram colocados na diretoria correta.\newline
-\par Posteriormente surgiram problemas ao correr os scripts para a criação das tabelas pois estes continham pontuação como ';' no fim dos comandos coisa que não pode ser usada nestes scripts no python, removendo os mesmos foi o suficiente para estes começarem a funcionar.\newline
-\par Outro problema que surgiu estava ligado á criação de duas tabelas que continham chaves estrangeiras uma da outra. Por estarmos a executar o script no python como uma das tabelas não tinha sido criada ao declarar uma chave estrangeira de uma tabela que não existe este comando não funcionava. Para resolver este problema, foram criadas primeiro as duas tabelas e a segunda com a chave estrangeira referenciando a primeira, posteriormente foram ambas preenchidas, primeiro a primeira tabela criada e depois a segunda, após serem preenchidas procedeu-se á alteração da primeira tabela criando a restrição de chave estrangeira correspondente.\newline
-\par Por fim surgiu outro problema ao guardar os dados. Na tabela Film os dados referentes a special\_features são devolvidos como tuplos em vez de uma string. Para isso foi necessário executar um ciclo for sobre os dados retirados da tabela MySQL e transformar esse tuplos em strings para poderem ser guardados n nossa base de dados.\newline  
+\par Em primeiro lugar a ligação á base de dados foi difícil de conseguir visto que após instalada a base de dados tivemos de proceder á instalação do instant-client, isto suscitou problemas pois este está na versão 19.3.0.0.0 e os torturiais para a instalação deste estão desatualizados estando atualmente na versão 12. Isto levou-nos a procurar soluções em foruns, no git e no StackOverflow até que finalmente as variáveis com o caminho foram criadas e os ficheiros do Instant Client foram colocados na diretoria correta.\newline
+\par Posteriormente surgiram problemas ao correr os scripts para a criação das tabelas pois estes continham pontuação como ';' no fim dos comandos coisa que não pode ser usada nestes scripts no python, removendo os mesmos foi o suficiente para os scripts de criação de tabelas começarem a funcionar.\newline
+\par Outro problema que surgiu estava ligado á criação de duas tabelas que continham chaves estrangeiras uma da outra. Por estarmos a executar o script no python como uma das tabelas não tinha sido criada ao declarar uma chave estrangeira dessa tabela o comando não funcionava. Para resolver este problema, foram criadas primeiro as duas tabelas e a segunda contendo a chave estrangeira referenciando a primeira. Posteriormente foram ambas preenchidas, primeiro a tabela sem chaves estrangeiras seguindo-se a restante. Após serem preenchidas procedeu-se á alteração da primeira tabela criando a restrição de chave estrangeira correspondente.\newline
+\par Por fim surgiu outro problema ao guardar os dados. Na tabela Film os dados referentes a special\_features são devolvidos como tuplos em vez de uma string. Para isso foi necessário executar um ciclo for sobre os dados retirados da tabela MySQL e transformar esse tuplos em strings para poderem ser guardados na nossa base de dados.\newline  
 
 
 \subsection{Preenchimento da Base de Dados}
@@ -74,18 +78,27 @@ Primeiramente, discute-se sobre a base de dados relacional , seguindo com a docu
 
 \subsection{Querys á Base de Dados}
 
-Em seguida listam-se duas das querys feitas á base de dados Oracle e as respetivas respostas.
-
-\begin{itemize}
-\item \textbf{res = oracleCursor.execute("SELECT * FROM FILM WHERE FILM\_ID <= 3").fetchall()}
-
-res = [(1, 'ACADEMY DINOSAUR', 'A Epic Drama of a Feminist And a Mad Scientist who must Battle a Teacher in The Canadian Rockies', 2006, 1, None, 6, 0.99, 86, 20.99, 'PG', 'Behind the Scenes Deleted Scenes', datetime.datetime(2006, 2, 15, 5, 3, 42)), (2, 'ACE GOLDFINGER', 'A Astounding Epistle of a Database Administrator And a Explorer who must Find a Car in Ancient China', 2006, 1, None, 3, 4.99, 48, 12.99, 'G', 'Trailers Deleted Scenes', datetime.datetime(2006, 2, 15, 5, 3, 42)), (3, 'ADAPTATION HOLES', 'A Astounding Reflection of a Lumberjack And a Car who must Sink a Lumberjack in A Baloon Factory', 2006, 1, None, 7, 2.99, 50, 18.99, 'NC-17', 'Trailers Deleted Scenes', datetime.datetime(2006, 2, 15, 5, 3, 42))]
+Em seguida listam-se três das querys feitas á base de dados Oracle e as respetivas respostas.
 
 
-\item \textbf{res = oracleCursor.execute("SELECT FILM.TITLE, LANGUAGE.NAME FROM FILM, LANGUAGE WHERE FILM.LANGUAGE\_ID = LANGUAGE.LANGUAGE\_ID").fetchall()}
+\begin{lstlisting}[caption=Query á base de dados Oracle para devolver todos os Filmes com id inferior ou igual a 3]
+oracleCursor.execute("SELECT * FROM FILM WHERE FILM_ID <= 3").fetchall()
+\end{lstlisting}
 
-res =  [('ACADEMY DINOSAUR', 'English'), ('ACE GOLDFINGER', 'English'), ('ADAPTATION HOLES', 'English'), ('AFFAIR PREJUDICE', 'English'), ('AFRICAN EGG', 'English'), ('AGENT TRUMAN', 'English'), ('AIRPLANE SIERRA', 'English'), ('AIRPORT POLLOCK', 'English'), ('ALABAMA DEVIL', 'English'), ('ALADDIN CALENDAR', 'English'), ('ALAMO VIDEOTAPE', 'English'), ('ALASKA PHANTOM', 'English'), ('ALI FOREVER', 'English'), ('ALICE FANTASIA', 'English'), ('ALIEN CENTER', 'English'), ('ALLEY EVOLUTION', 'English'), ('ALONE TRIP', 'English'),...]
-\end{itemize}
+
+\begin{lstlisting}[=caption=Query á base de dados Oracle para devolver todos os Filmes com o nome das respetivas linguagens]
+oracleCursor.execute("SELECT FILM.TITLE, LANGUAGE.NAME FROM FILM,LANGUAGE
+ WHERE FILM.LANGUAGE\_ID = LANGUAGE.LANGUAGE\_ID").fetchall()
+\end{lstlisting}
+
+
+\begin{lstlisting}[caption=Query á base de dados Oracle para devolver o total faturado por utilizador]
+oracleCursor.execute("SELECT CUSTOMER.FIRST_NAME,CUSTOMER.LAST_NAME,
+SUM( AMOUNT ) FROM PAYMENT,CUSTOMER 
+WHERE PAYMENT.CUSTOMER_ID = CUSTOMER.CUSTOMER_ID 
+GROUP BY CUSTOMER.FIRST_NAME,CUSTOMER.LAST_NAME ").fetchall()
+\end{lstlisting}
+
 
 
 

@@ -526,5 +526,8 @@ print("Table PAYMENT filled!!")
 res = oracleCursor.execute("SELECT * FROM FILM WHERE FILM_ID <= 3").fetchall()
 print("res =",res)
 
-res2 = oracleCursor.execute("SELECT FILM.TITLE, LANGUAGE.NAME FROM FILM, LANGUAGE WHERE FILM.LANGUAGE_ID = LANGUAGE.LANGUAGE_ID").fetchall()
-print("res2 =",res2)
+#res2 = oracleCursor.execute("SELECT FILM.TITLE, LANGUAGE.NAME FROM FILM, LANGUAGE WHERE FILM.LANGUAGE_ID = LANGUAGE.LANGUAGE_ID").fetchall()
+#print("res2 =",res2)
+
+res3 = oracleCursor.execute("SELECT CUSTOMER.FIRST_NAME,CUSTOMER.LAST_NAME, SUM( AMOUNT ) FROM PAYMENT,CUSTOMER WHERE PAYMENT.CUSTOMER_ID = CUSTOMER.CUSTOMER_ID GROUP BY CUSTOMER.FIRST_NAME,CUSTOMER.LAST_NAME ").fetchall()
+print("res3 =",res3)

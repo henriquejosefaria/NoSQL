@@ -1,18 +1,20 @@
+\newpage
+
 \section{MongoDB}
 
 \subsection{Criação da base de dados}
 
-\subsubsection{Motivação}
+\subsubsection{Motivação}\hfill
+\newline
+\par Por esta ser uma base de dados orientada a documentos, tem várias vantagens face ao MySQL. Para além de ser escalável horizontalmente, é mais facil de manter, atualizar e é ótima para coletar informações referentes a um objeto, evitando os \textbf{joins} de tabelas usados pelo MySQL visto que este guarda toda a informação de um objeto num mesmo documento.
 
-Por esta ser uma base de dados orientada a documentos, tem várias vantagens face ao MySQL, para além de ser escalável horizontalmente, é mais facil de manter, atualizar e é ótima para coletar informações referentes a um objeto, evitando joins de tabelas usados pelo MySQL visto este ter toda a informação de um objeto num mesmo documento.
-
-\subsubsection{Criação - modificações}
-
-Para a criação desta base de dados supusemos ser uma aplicação da loja na qual só se pretende obter informações sobre que utilizador consome filmes em que loja, quem o atendeu, em que data e qual o preço. Para além disso é importante saber as carateristicas dos filmes presentes nas lojas, as linguas em que estão, quais os atores que participaram e as categorias em que se insere,isto é, um sistema de suporte de consulta online.
+\subsubsection{Criação - modificações}\hfill
+\newline
+\par Para a criação desta base de dados supusemos ser uma aplicação de uma loja na qual só se pretende obter informações sobre que utilizador consome filmes em que loja, quem o atendeu, em que data e qual o preço. Para além disso é importante saber as carateristicas dos filmes presentes nas lojas, as linguas em que estão, quais os atores que participaram e as categorias em que se insere, isto é, é necessário um sistema de suporte de consulta online.
 
 \subsection{Criação - Estrutura da Base de Dados}
 
-\par Em seguida apresentam-se os documentos gerados com base nos requisitos para a base de dados MongoDB.A coleção dos Filmes(films) contem o identificador do Filme(id), o titulo(title), o ano que saiu(release\_year), uma descrição do conteúdo do Filme(descrição), o Idioma original(original\_language), o Idioma estrangeiro(foreign\_language),um Array com as categorias as qual pertence(categorys) e , por último, uma lista de atores que participaram no filme(actors)\newline
+\par Em seguida apresentam-se os documentos gerados com base nos requisitos para a base de dados MongoDB. A coleção dos Filmes(films) contem o identificador do Filme(id), o titulo(title), o ano que saiu(release\_year), uma descrição do conteúdo do Filme(descrição), o Idioma original(original\_language), o Idioma estrangeiro(foreign\_language),um Array com as categorias as qual pertence(categorys) e , por último, uma lista de atores que participaram no filme(actors).\newline
 
 \begin{lstlisting}[caption=Esquema da coleção films]
 Filme:
@@ -33,6 +35,7 @@ A segunda coleção para os Pagamentos(payments) contem um objeto por loja que �
 Cada fatura é identificado pelo seu identificador próprio(payment\_id), a quantia paga(amount), a data em qual foi efetuado(date), o identificador do staff que atendeu esse pagamento(staff\_id), o nome do staff(name) e o email do mesmo(email).
 
 \begin{lstlisting}[caption=Esquema da coleção payments]
+Payments
 {
 	"store_id" : ,
 	"manager_id" : ,
@@ -91,7 +94,7 @@ f.film_id
 
 \end{figure}
 
-\par Cada objeto iterado neste ciclo while corresponde a um film, podendo haver filmes repetidos em iterações sucessivas cuja única diferença reside sempre no ator e pode ter também diferentes categorias, tendo portanto, cada iteração, um ator diferente e uma ou nenhuma categoria. Assim fazendo uso do ciclo com a verificação do id de cada filme sendo igual permite que identifiquemos o mesmo filme em várias iterações e possamos adicionar os atores todos numa string bem como as categorias. Quando a verificação da igualdade do filme falha sabemos que podemos adicionar o filme á base de dados pois já coletámos todos os atores e categorias deste.
+\par Cada objeto iterado neste ciclo while corresponde a um filme, podendo haver filmes repetidos em iterações sucessivas cuja única diferença reside sempre no ator e pode ter também diferentes categorias, tendo portanto, cada iteração, um ator diferente e uma ou nenhuma categoria. Assim fazendo uso do ciclo com a verificação do id de cada filme sendo igual permite que identifiquemos o mesmo filme em várias iterações e possamos adicionar os atores todos numa string, bem como as categorias. Quando a verificação da igualdade do filme falha sabemos que podemos adicionar o filme á base de dados pois já coletámos todos os atores e categorias deste.
 
 A segunda query usada para povoar a coleção payments foi a seguinte:
 
@@ -100,10 +103,10 @@ SELECT s.store_id, c.first_name AS Costumer_first_name,
 c.last_name AS Costumer_last_name, p.amount, p.payment_date, 
 st.first_name AS Staff_first_name, st.last_name  
 AS Staff_last_name,s.manager_staff_id,st.staff_id,st.email,
-p.payment_id,c.customer_id,c.email FROM 
- store AS s LEFT JOIN customer AS c ON s.store_id = s.store_id 
+p.payment_id,c.customer_id,c.email FROM store AS s 
+  LEFT JOIN customer AS c ON s.store_id = s.store_id 
   LEFT JOIN payment AS p ON c.customer_id = p.customer_id 
-   LEFT JOIN staff AS st ON p.staff_id = st.staff_id
+  LEFT JOIN staff AS st ON p.staff_id = st.staff_id
 \end{lstlisting}
 
  
@@ -124,19 +127,20 @@ p.payment_id,c.customer_id,c.email FROM
 
 \subsection{Querys a Base de Dados}
 
-Em seguida listam-se algumas das querys feitas á base de dados Mongo e as respetivas respostas.Primeiramente, uma query simples que devolve todos os titulos e as linguagens que tem todos os filmes.Poder-se-ia , facilmente, filtrar por qualquer dos campos presentes na coleção films.
+Em seguida listam-se algumas das querys feitas á base de dados Mongo e as respetivas respostas.
+\par Primeiramente é executada uma query simples que devolve todos os titulos e as linguagens que cada filme tem. Poder-se-ia, facilmente, filtrar a base de dados usando qualquer um dos campos presentes na coleção films.
 
 \begin{lstlisting}[language=java,caption=Query ao Mongo para devolver todos os Filmes]
 filmsList.find({},
 {
 	"title": 1, 
-	"original\_language": 1, 
-	"foreign\_language": 1,
-	"\_id": 0
+	"original_language": 1, 
+	"foreign_language": 1,
+	"_id": 0
 })
 \end{lstlisting}
 
-Por exemplo, a seguinte query devolve todos os titúlos dos filmes que tenha sido estreados depois do ano 2005.E, também, uma query para determinar os titúlos dos filmes da categoria Action.
+Por exemplo, a seguinte query devolve todos os titúlos dos filmes que tenham estreado depois do ano 2005. Seguindo-se uma query para determinar os titúlos dos filmes da categoria Action.
 
 \begin{lstlisting}[language=java,caption=Query ao Mongo para devolver todos os Filmes estreados depois de 2005]
 
@@ -161,7 +165,7 @@ db.films.find(
 })
 \end{lstlisting}
 
-Finalmente, uma query realizada a coleção payments.Esta query usa o aggregate para fazer "unwind" de um dos arrays presentes na coleção payments.De seguida, filtra só por aqueles que tem o customer\_id igual ao desejado. E,concluindo, devolve objetos que contem os identificadores da store e todos pagamentos realizados pelo Cliente.
+Finalmente, efetuamos uma query realizada sobre coleção payments. Esta query usa o aggregate para fazer "unwind" de um dos arrays presentes na coleção payments. De seguida, filtra só por aqueles que tem o customer\_id igual ao desejado. E, por fim, devolve os objetos que contem os identificadores da store e todos pagamentos realizados pelo Cliente.
 
 \begin{lstlisting}[language=java,caption=Query para obter as faturas de um dado Cliente organizado por Store]
 
@@ -173,4 +177,4 @@ db.payments.aggregate(
 
 \end{lstlisting}
 
-Note-se que este tipo de queries já é mais trabalhosa para o Mongo.
+Note-se que este tipo de queries já é mais trabalhosa para o Mongo, logo esta não é a base de dados mais indicada para estas.

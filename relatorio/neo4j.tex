@@ -1,45 +1,47 @@
+\newpage
 \section{Neo4J}
 
 \subsection{Criação da base de dados}
 
-\subsubsection{Motivação}
+\subsubsection{Motivação}\hfill
+\newline
+\par A base de dados gráfica é ideal para as queries que relacionam muitas entidades entre si. Assim, poder-se-ia fazer o paralelismo com as queries que necessitam de muitos Joins no modelo relacional.
+Esta base de dados assenta numa estrutura de grafos.
 
-A base de dados grafica é ideal para as queries que relacionam muitas entidades entre si. Assim, poder-se-ia fazer o paralelismo com as queries que necessitam muitos Joins no modelo relacional.Isto é facilitado pelo fato da estrutura da base de dados ser um grafo.
-
-\subsubsection{Criação - modificações}
-
-Para a criaçao desta base de dados supôs-se a mesma aplicação que para o Mongo, ou seja, uma aplicação de procura de filmes por atores, categoria, etc e também para consultar as faturas dos clientes por loja, quem emitiu e onde.Dado a própria natureza do tipo de base de dados ainda conetou-se estas duas partes.
+\subsubsection{Criação - modificações}\hfill
+\newline
+\par Para a criaçao desta base de dados supôs-se a mesma aplicação que para o Mongo, ou seja, uma aplicação de procura de filmes por atores, categoria, etc e também para consultar as faturas dos clientes por loja, quem emitiu e onde. Dado a natureza do tipo de base de dados ainda se conectaram estas duas partes.
 
 \subsection{Criação - Estrutura da Base de Dados}
 
 A estrutura da base dados pode ser dividida em dois uma parte que relaciona os Filmes com os Atores, Categorias e Idiomas e outra que relaciona os Pagamentos com os Cliente,Lojas e os Staff.Assim pode-se identificar os seguintes nodos para a primeira parte:
 \begin{itemize}
 
-\item Filme: Representa um filme.Contem o identificador(id), o título(title), o ano em que o filme estreou(release\_year) e a descriçao do mesmo(description)
+\item Filme: Representa um filme.Contem o identificador(id), o título(title), o ano em que o filme estreou(release\_year) e a descriçao do mesmo(description).
 \hfill\\
 \item Ator: Representa um ator que pode ter participado num Filme. Contem o identificador(id) do mesmo e o seu nome(name).
 \hfill\\
-\item Categoria: Representa uma categoria/género onde o Filme pode ser enquadrado. Contem o identificador e o nome da categoria(name)
+\item Categoria: Representa uma categoria/género onde o Filme pode ser enquadrado. Contem o identificador e o nome da categoria(name).
 \hfill\\
 \item Idioma: Representa um dos idiomas que pode ser ouvidos os Filmes. Contem também o identificador (id) e a sua designação (name). 
 
 \end{itemize}
-
-Os relacionamentos para esta primeira "parte" são:
-
+\hfill\\
+Os relacionamentos para esta primeira "parte" são:\newline
+\hfill\\
 \begin{itemize}
 
 \item Atuou\_Em: Relaciona os nodos Ator com os nodos Filme. Designa que atores participaram em que Filmes.
 \hfill\\
-\item Tem\_Categoria: Relaciona os nodos Filme com os nodos Categoria.Está relação permite estabelecer quais as Categorias a que o Filme pertence.
+\item Tem\_Categoria: Relaciona os nodos Filme com os nodos Categoria. Está relação permite estabelecer quais as Categorias a que o Filme pertence.
 \hfill\\
 \item Idioma\_Estrangeiro: Relaciona os nodos Filme com os nodos Idioma. Designa o Idioma estrangeiro em qual se pode ouvir o Filme.
 \hfill\\
-\item Idioma\_Original: Relaciona os nodos Filme com os nodos Idioma. Designa o Idioma original do Filme.No entanto, a relação não é usada visto que os dados que povoam a base dados MySQL não contem nenhuma entrada deste tipo.Apesar de estar no modelo lógico.
+\item Idioma\_Original: Relaciona os nodos Filme com os nodos Idioma. Designa o Idioma original do Filme. No entanto, a relação não é usada visto que os dados que povoam a base dados MySQL não contem nenhuma entrada deste tipo apesar de estar no modelo lógico.
 \end{itemize}
-
-A segunda parte como foi mencionado diz respeito aos Pagamentos.Os nodos criados para representar esta situação foram os seguintes:
-
+\hfill\\
+A segunda parte, como foi mencionado, diz respeito aos Pagamentos. Os nodos criados para representar estes dados foram os seguintes:\newline
+\hfill\\
 \begin{itemize}
 
 \item Loja: Representa uma Loja onde se poderiam fazer aluguer de Filmes. Contem um identificador(id) e um identificador de manager(manager\_id). Para descobrir o nome do manager, por exemplo, cruza-se este identificador com os identificadores dos trabalhadores que estão nesta loja.
@@ -51,9 +53,9 @@ A segunda parte como foi mencionado diz respeito aos Pagamentos.Os nodos criados
 \item Pagamento: Representa um pagamento realizado por um Cliente. Contem um identificador do Pagamento(id), a quantia que foi paga (amount) e a data em que foi realizado o mesmo (date).
 
 \end{itemize}
-
-Estes nodos são interligados com os seguintes relacionamentos:
-
+\hfill\\
+Estes nodos são interligados com os seguintes relacionamentos:\newline
+\hfill\\
 \begin{itemize}
 
 \item Trabalha\_Em : Relaciona os nodos Staff com os nodos Loja. Designa que trabalhadores estão a trabalhar em que Loja.
@@ -65,9 +67,9 @@ Estes nodos são interligados com os seguintes relacionamentos:
 \item Emitida\_Por : Relaciona os nodos Pagamentos com os nodos Staff. Vincula os pagamentos com que os emitiu.
 
 \end{itemize}
-
-Nas seguintes imagem encontra-se uma representação gráfica dos nodos e relacionamentos mencionados acima. Sendo a primeira imagem da primeira parte e segunda  da segunda parte.
-
+\hfill\\
+Nas seguintes imagem encontra-se uma representação gráfica dos nodos e relacionamentos mencionados acima. Sendo a primeira imagem da primeira parte e segunda  da segunda parte.\newline
+\hfill\\
 \begin{figure}[H]
 
   \centering
@@ -93,7 +95,7 @@ Nas seguintes imagem encontra-se uma representação gráfica dos nodos e relaci
 
 \end{figure}
 
-De forma a conetar as duas partes e permitir queries mais interessantes, e mais possibilidades.Adicionou-se a relação Corresponde que coneta os nodos Pagamento e os nodos Filme, isto é, quais os pagamentos que correspondem a dado filme.
+De forma a conetar as duas partes e permitir queries mais interessantes, e mais possibilidades.Adicionou-se a relação Corresponde que conecta os nodos Pagamento e os nodos Filme, isto é, quais os pagamentos que correspondem a dado filme.
 
 \begin{figure}[H]
 
@@ -112,7 +114,9 @@ De forma a conetar as duas partes e permitir queries mais interessantes, e mais 
 
 \subsection{Preenchimento da Base de Dados}
 
-O preenchimento da base de dados foi realizada tendo como base os mesmos ciclos para migrar para MongoDB e , também as mesmas queries ao MySQL(adicionando uns atributos das tabelas usadas para os Joins).Utilizando , também, Python e a Biblioteca correspondente de Neo4j.Verificando sempre se os nodos ja existem para evitar repetições.De seguida, apresenta-se as imagens com os Statments usados para evitar criações e para inserir os novos elementos para a base de dados Neo4j.Os da primeira imagem correspondem ao subgrafo relacionado com Filmes e a segunda corresponde ao subgrafo dos Pagamentos, Clientes e etc.Ainda a terceira imagem corresponde a zona que faz conexão entre os dois.Através de uma query ao MySql que junta as tabelas Rental,Payment e Inventory apresentada a seguir.
+O preenchimento da base de dados foi realizada tendo como base os mesmos ciclos usados para migrar os dados para o MongoDB e também as mesmas queries ao MySQL(adicionando uns atributos das tabelas usadas para os Joins). \newline
+\par Fez também uso do Python e a Biblioteca correspondente de Neo4j, verificando sempre se os nodos ja existem para evitar repetições. \newline
+\par De seguida, apresentam-se as imagens com os Statments usados para criar ligações e para inserir os novos elementos na base de dados Neo4j. A primeira imagem corresponde ao subgrafo relacionado com Filmes e a segunda corresponde ao subgrafo dos Pagamentos, Clientes e etc. Já a terceira imagem corresponde á conexão entre os dois através de uma query ao MySql que junta as tabelas Rental, Payment e Inventory apresentada a seguir.
 
 \begin{lstlisting}[language=sql,caption=Query ao MySQL para fazer a conexão entre os dois subgrafos]
 
@@ -164,7 +168,8 @@ SELECT payment.payment_id,rental.rental_id,inventory.film_id From
 
 \subsection{Querys a Base de Dados}
 
-A seguir apresentam-se alguns tipos de queries que podem ser feitas a base de Dados gráfica. A primeira retorna todos os filmes da Categoria Action, podendo adaptar-se para outro tipo de categorias ou para retornar todas categorias de um filme.
+A seguir apresentam-se alguns tipos de queries que podem ser feitas á base de Dados gráfica.\newline
+\par A primeira retorna todos os filmes da Categoria Action, podendo adaptar-se para outro tipo de categorias ou para retornar todas categorias de um filme.
 
 \begin{lstlisting}[caption=Query ao Neo4j para retornar os filmes da categoria ação]
 Match (f:Filme)-[:Tem_Categoria]-(c:Categoria) 
@@ -172,7 +177,7 @@ Match (f:Filme)-[:Tem_Categoria]-(c:Categoria)
 		Return f
 \end{lstlisting}
 
-Esta próxima permite devolver todos os atores que participaram no filme de Categoria Action.Podendo-se alterar para retornar todos os Filmes em que um ator participou etc.
+Esta próxima permite devolver todos os atores que participaram no filme de Categoria Action. Podendo-se alterar para retornar todos os Filmes em que um ator participou etc.
 
 \begin{lstlisting}[caption=Query ao Neo4j para retornar todos os atores que participaram em filmes de Action]
 Match (f:Filme)-[r:Tem_Categoria]-(c:Categoria)
@@ -181,7 +186,7 @@ Match (f:Filme)-[r:Tem_Categoria]-(c:Categoria)
 			Return a
 \end{lstlisting}
 
-Outra Query focada mais no lado dos Pagamentos permite retornar todos os Pagamentos realizados por um Cliente.Ainda , facilmente, poder-se-ia retornar a lista de pagamentos realizados por um Staff ou pertencentes a uma loja.
+Outra Query focada mais no lado dos Pagamentos permite retornar todos os Pagamentos realizados por um Cliente. Note-se que com uma pequena alteração poder-se-ia retornar a lista de pagamentos realizados por um Staff ou pertencentes a uma loja.
 
 \begin{lstlisting}[caption=Query ao Neo4j para retornar todos os Pagamentos de um determindado Cliente]
 Match (c:Cliente)-[:Pertence]-(p:Pagamento) 
@@ -189,7 +194,7 @@ Match (c:Cliente)-[:Pertence]-(p:Pagamento)
 		Return p
 \end{lstlisting}
 
-Finalmente, e uma das mais úteis, utilizando a ligação que coneta as duas partes.Permite saber quais os filmes que um Cliente realizou pagamentos por.Permitindo realizar uma analise sobre os Clientes.
+Finalmente, e uma das mais úteis, utilizando a ligação que conecta as duas partes podemos saber quais os filmes sobre os quais um cliente realizou pagamentos permitindo efetuar uma análise sobre os clientes.
 
 \begin{lstlisting}[caption=Query ao Neo4j para retornar todos os filmes que um determinar Cliente já pagou por]
 Match (p:Pagamento)-[:Corresponde]-(f:Filme),
